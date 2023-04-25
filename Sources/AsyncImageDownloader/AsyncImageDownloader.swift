@@ -11,6 +11,23 @@ actor AsyncImageDownloader {
 	
 	private var cache: [String: CacheHandler] = [:]
 	private var cacheManager = CacheManager()
+		
+	private func cacheImage(_ tempURL: URL?, id key: String) {
+		if let url = tempURL {
+			self.cache[key] = .complete(url)
+		}
+	}
+	
+	private func getCachedImage(from url: URL?) async throws -> UIImage? {
+		
+		guard let url else { return nil }
+		
+		let data = try Data(contentsOf: url)
+		return UIImage(data: data)
+	}
+}
+
+extension AsyncImageDownloader {
 	
 	public func getImage(from url: URL?, with id: String, format: FileFormat) async throws -> UIImage {
 		
@@ -47,20 +64,6 @@ actor AsyncImageDownloader {
 			self.cache[id] = .failed(error)
 			throw error
 		}
-	}
-	
-	private func cacheImage(_ tempURL: URL?, id key: String) {
-		if let url = tempURL {
-			self.cache[key] = .complete(url)
-		}
-	}
-	
-	private func getCachedImage(from url: URL?) async throws -> UIImage? {
-		
-		guard let url else { return nil }
-		
-		let data = try Data(contentsOf: url)
-		return UIImage(data: data)
 	}
 }
 
