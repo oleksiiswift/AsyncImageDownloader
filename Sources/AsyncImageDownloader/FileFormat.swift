@@ -1,6 +1,6 @@
 import Foundation
 
-enum FileFormat: String {
+public enum FileFormat: String {
 	case jpeg = "jpeg"
 	case png = "png"
 	case gif = "gif"
