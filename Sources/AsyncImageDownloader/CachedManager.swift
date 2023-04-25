@@ -6,7 +6,7 @@ enum Directory: String {
 	case temp = "tmp"
 }
 
-final class CacheManager {
+class CacheManager {
 
 	public func getCachedImage(with id: String, of format: FileFormat) -> UIImage? {
 		

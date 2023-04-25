@@ -7,7 +7,15 @@ private enum CacheHandler {
 	case failed(Error)
 }
 
-actor AsyncImageDownloader {
+public enum FileFormat: String {
+	case jpeg = "jpeg"
+	case png = "png"
+	case gif = "gif"
+	case bmp = "bmp"
+	case heic = "HEIC"
+}
+
+class AsyncImageDownloader {
 	
 	private var cache: [String: CacheHandler] = [:]
 	private var cacheManager = CacheManager()
