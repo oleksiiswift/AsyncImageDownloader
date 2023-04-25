@@ -15,10 +15,12 @@ public enum FileFormat: String {
 	case heic = "HEIC"
 }
 
-class AsyncImageDownloader {
+open class AsyncImageDownloader {
 	
 	private var cache: [String: CacheHandler] = [:]
 	private var cacheManager = CacheManager()
+	
+	public init() {}
 		
 	private func cacheImage(_ tempURL: URL?, id key: String) {
 		if let url = tempURL {
