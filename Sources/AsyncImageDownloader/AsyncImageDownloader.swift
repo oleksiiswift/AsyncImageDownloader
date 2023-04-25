@@ -39,6 +39,14 @@ actor AsyncImageDownloader {
 
 extension AsyncImageDownloader {
 	
+	public func cleanCache() {
+		self.cacheManager.clearDirectory(of: .cache)
+		self.cacheManager.clearDirectory(of: .temp)
+	}
+}
+
+extension AsyncImageDownloader {
+	
 	public func getImage(from url: URL?, with id: String, format: FileFormat) async throws -> UIImage {
 		
 		if let handler = cache[id] {

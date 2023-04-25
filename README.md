@@ -11,3 +11,5 @@ How to use:
 					// use image, update ui
 				}
 			}
+			
+			AsyncImageDownloader().cleanCache() - clean all files
