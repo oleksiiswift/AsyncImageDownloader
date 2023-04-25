@@ -15,7 +15,7 @@ public enum FileFormat: String {
 	case heic = "HEIC"
 }
 
-actor AsyncImageDownloader {
+open class AsyncImageDownloader {
 	
 	private var cache: [String: CacheHandler] = [:]
 	private var cacheManager = CacheManager()
