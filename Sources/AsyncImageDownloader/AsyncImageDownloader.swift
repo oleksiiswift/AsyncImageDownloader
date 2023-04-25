@@ -47,6 +47,12 @@ extension AsyncImageDownloader {
 
 extension AsyncImageDownloader {
 	
+	public func getImage(from id: String, with format: FileFormat) -> UIImage? {
+		
+		return cacheManager.getCachedImage(with: id, of: format)
+	}
+	
+	
 	public func getImage(from url: URL?, with id: String, format: FileFormat) async throws -> UIImage {
 		
 		if let handler = cache[id] {
