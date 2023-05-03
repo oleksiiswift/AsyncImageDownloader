@@ -32,6 +32,7 @@ class CacheManager {
 				return fileURL
 			}
 			try FileManager.default.moveItem(at: source, to: fileURL)
+			return fileURL
 		} catch {
 			debugPrint(error.localizedDescription)
 		}
