@@ -13,6 +13,7 @@ public enum FileFormat: String {
 	case gif = "gif"
 	case bmp = "bmp"
 	case heic = "HEIC"
+	case webp = "webp"
 }
 
 open class AsyncImageDownloader {
